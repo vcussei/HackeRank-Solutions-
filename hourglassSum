@@ -1,4 +1,9 @@
-// Complete the hourglassSum function below.
+/*
+This my approach to the problem on https://www.hackerrank.com/challenges/2d-array
+NOTE: I have only included my function. Refere to the hackerRank website to view the main function implementation 
+
+
+*/
 int hourglassSum(int arr_rows, int arr_columns, int** arr) {
     int min = -64; 
     int sum = 0; 
