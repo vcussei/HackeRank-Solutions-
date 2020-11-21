@@ -1,35 +1,17 @@
-
-
-
-
-/*
-The problem was extracted from HackerRank: 
-
-"Given an array of integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines:
-
-Array is sorted in numSwaps swaps., where  is the number of swaps that took place.
-First Element: firstElement, where  is the first element in the sorted array.
-Last Element: lastElement, where  is the last element in the sorted array."
-
-
-*/
-// This is my approach to the question. 
-//NOTE: I have uploded my function only. The main function can be optained from: 
-//https://www.hackerrank.com/challenges/ctci-bubble-sort/problem
-
-void countSwaps(int a_count, int* a) {
-    int numSwaps = 0; 
-    for (int i=0; i<a_count; i++){
-        for (int j=0; j<a_count-1; j++){
-            if (a[j]>a[j+1]){
-                int temp = a[j];
-                a[j] =a[j+1];  
-                a[j+1]= temp;  
-                numSwaps++; 
-            }      
+// Complete the hourglassSum function below.
+int hourglassSum(int arr_rows, int arr_columns, int** arr) {
+    int min = -64; 
+    int sum = 0; 
+    for (int i = 0; i<=3; i++){
+        for (int j=0; j<=3; j++){
+           sum = arr[i][j] + arr[i][j+1] + arr[i][j+2]; //top part 
+           sum += arr[i+1][j+1]; //middle 
+           sum += arr[i+2][j] +arr[i+2][j+1] + arr[i+2][j+2]; //bottom 
+           if (min<sum){
+               min = sum; 
+           }
         }
     }
-  printf("Array is sorted in %d swaps.\n", numSwaps); 
-  printf("First Element: %d  \n", a[0]); 
-  printf("Last Element: %d ", a[a_count-1]); 
+
+return min; 
 }
